@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/call_api
+docs:
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/call_api
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_openapi_userauthorization
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v2_applytoken
+- https://gcash.com/business/api-portal-faqs
+summary:
+  types: [signature, oauth2]
+  model: >-
+    GCash Mini Program Open API uses per-request digital-signature
+    authentication (asymmetric key pair per partner) plus an OAuth2
+    authorization-code style user-authorization flow that mints access tokens
+    for user-scoped operations. The partner API Portal issues client
+    credentials after subscription approval.
+schemes:
+- name: RequestSignature
+  type: signature
+  location: header
+  headers:
+  - Client-Id
+  - Request-Time
+  - Signature
+  signature:
+    algorithms: [RSA256, ECC224]
+    default: RSA256
+    key_version: keyVersion (defaults to latest key bound to Client-Id)
+    request_time_format: ISO 8601, millisecond precision (e.g. 2019-05-28T12:12:12+08:00)
+  notes: >-
+    Every Open API call is signed. The Signature header is a comma-separated
+    key=value string carrying algorithm, keyVersion and the signature value.
+    Keys are bound to the partner Client-Id and generated in the API Portal
+    "Request Credentials" wizard.
+  source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/call_api
+- name: UserAuthorization
+  type: oauth2
+  flow: authorizationCode
+  steps:
+  - my.getAuthCode / user authorization consent yields an authCode
+  - POST /v{1,2}/authorizations/applyToken exchanges authCode for accessToken
+  scopes_documented: [USER_INFO, USER_LOGIN_ID, USER_BASE_INFO]
+  notes: >-
+    Scopes above are the user-information capability scopes named in the
+    mini-program authorization docs; the full scope reference is partner-gated.
+  source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_openapi_userauthorization
+- name: PortalCredentials
+  type: apiKey
+  location: partner-portal-issued
+  notes: >-
+    Partner applications receive credentials via the GCash API Portal after
+    subscribing to an API product and being approved. Portal login is
+    email-based; production apiportal.gcash.com, sandbox apiportal.lab.gcash.com.
+  source: https://gcash.com/business/api-portal-faqs
