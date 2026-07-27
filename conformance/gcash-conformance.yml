@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: derived
+source: >-
+  derived from GCash Mini Program Open API docs (call_api, v1_pay,
+  userauthorization) and the gcash.com security.txt
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    User authorization uses an OAuth2 authorization-code flow (authCode ->
+    /v{1,2}/authorizations/applyToken -> accessToken)
+- id: oidc
+  conforms: false
+  evidence: no OpenID Connect discovery document served (well-known soft-404 only)
+- id: request-signing
+  conforms: true
+  evidence: >-
+    Every Open API request is signed with RSA256/ECC224 over Client-Id +
+    Request-Time + body (Signature header)
+- id: idempotency
+  conforms: true
+  evidence: paymentRequestId / refundRequestId documented for idempotence control
+- id: webhooks
+  conforms: true
+  evidence: asynchronous paymentNotifyUrl callback (notifyPayment)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: uses a proprietary result{resultStatus,resultCode,resultMessage} envelope, not application/problem+json
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: https://gcash.com/.well-known/security.txt (VDP policy + contacts)
+- id: pci-dss
+  conforms: unknown
+  evidence: no public certification claim on the developer surface (regulated e-money issuer under BSP)

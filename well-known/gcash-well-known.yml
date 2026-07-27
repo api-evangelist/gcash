@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of /.well-known/ across gcash.com hosts
+notes: >-
+  Only /.well-known/security.txt returns real content (text/plain). The
+  apiportal.gcash.com and miniprogram.gcash.com hosts return HTTP 200 for
+  /.well-known/openid-configuration, /oauth-authorization-server, /api-catalog
+  and /llms.txt but the body is the single-page-app (Marketplace) index.html —
+  soft-404s, not real discovery documents, so they are recorded as not-present.
+hosts:
+- host: https://gcash.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: gcash-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+- host: https://new.gcash.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: gcash-security.txt
+- host: https://apiportal.gcash.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    real: false
+    note: SPA index.html soft-404 (text/html)
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    real: false
+    note: SPA index.html soft-404 (text/html)
+  - path: /.well-known/api-catalog
+    status: 200
+    real: false
+    note: SPA index.html soft-404 (text/html)
+- host: https://miniprogram.gcash.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    real: false
+    note: SPA index.html soft-404 (text/html)
+  - path: /.well-known/api-catalog
+    status: 200
+    real: false
+    note: SPA index.html soft-404 (text/html)

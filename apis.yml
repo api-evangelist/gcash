@@ -1,8 +1,17 @@
 aid: gcash
 name: GCash
-description: 'GCash is a company surfaced as a portfolio company of insight-partners and added to the
-  API Evangelist network as a stub for enrichment. Sector: payments. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: >-
+  GCash (operated by Mynt / G-Xchange, Inc.) is the Philippines' largest mobile
+  wallet and e-money platform, offering payments, transfers, QR checkout, bills
+  payment, savings, lending and insurance to tens of millions of users. For
+  developers and businesses it exposes a partner-gated API surface: the GCash
+  API Portal (discover and subscribe to API products such as In-Store QR,
+  Webpay, GLife and Funds Disbursement) and the GCash Mini Program Open API,
+  which lets merchants build in-app mini programs with cashier payments, refunds
+  and user authorization. API requests are secured with per-request RSA256/ECC224
+  signatures plus an OAuth2 authorization-code user flow, with idempotent payment
+  operations and asynchronous webhook notifications. This profile was seeded as a
+  portfolio lead and enriched from GCash's public developer documentation.
 url: https://raw.githubusercontent.com/api-evangelist/gcash/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,18 +19,108 @@ x-backed-by:
 - insight-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://logo.clearbit.com/gcash.com
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Payments
-apis: []
+- Mobile Wallet
+- E-Money
+- Fintech
+- Digital Payments
+- Philippines
+- QR Payments
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: GCash Mini Program Open API
+  description: >-
+    Merchant-facing payment API for GCash mini programs — cashier payment,
+    payment inquiry, refund and refund inquiry, plus OAuth2 user authorization
+    (authCode -> applyToken). Signed requests (Client-Id + Request-Time +
+    Signature), idempotent on paymentRequestId/refundRequestId, with async
+    notification callbacks.
+  humanURL: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/openapi_overview
+  baseURL: https://apiportal.gcash.com
+  x-baseURL-note: >-
+    Production access is provisioned through the GCash API Portal
+    (apiportal.gcash.com); the mini-program Open API gateway host is issued to
+    approved partners and not published publicly.
+  tags:
+  - Payments
+  - Mini Program
+  - Refunds
+  properties:
+  - type: Documentation
+    url: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/openapi_overview
+  - type: APIReference
+    url: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_api-reference
+  - type: GettingStarted
+    url: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/developer-guide
 common:
 - type: Website
   url: https://new.gcash.com/
+- type: DeveloperPortal
+  url: https://apiportal.gcash.com
+- type: Documentation
+  url: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/openapi_overview
+- type: APIReference
+  url: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_api-reference
+- type: GettingStarted
+  url: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/developer-guide
+- type: Support
+  url: https://gcash.com/business/api-portal-faqs
+- type: TermsOfService
+  url: https://gcash.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://gcash.com/privacy-notice
+- type: Authentication
+  url: authentication/gcash-authentication.yml
+- type: Conventions
+  url: conventions/gcash-conventions.yml
+- type: Idempotency
+  url: conventions/gcash-conventions.yml
+- type: ErrorCatalog
+  url: errors/gcash-problem-types.yml
+- type: Webhooks
+  url: asyncapi/gcash-payments-webhooks.yml
+- type: Sandbox
+  url: sandbox/gcash-sandbox.yml
+- type: MCPServer
+  url: mcp/gcash-mcp.yml
+- type: Lifecycle
+  url: lifecycle/gcash-lifecycle.yml
+- type: Conformance
+  url: conformance/gcash-conformance.yml
+- type: WellKnown
+  url: well-known/gcash-well-known.yml
+- type: SecurityTxt
+  url: well-known/gcash-security.txt
+- type: Security
+  url: https://gcash.com/vulnerability-disclosure-program/policy
+- type: VulnerabilityDisclosure
+  url: security/gcash-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/gcash-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

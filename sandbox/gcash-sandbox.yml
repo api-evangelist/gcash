@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: searched
+source: https://gcash.com/business/api-portal-faqs
+docs:
+- https://gcash.com/business/api-portal-faqs
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/developer-guide
+summary: >-
+  GCash separates non-production and production through distinct API Portal
+  environments. Partners obtain sandbox credentials in the lab portal and
+  develop mini programs in Mini Program Studio before production release.
+environments:
+- name: non-production (lab / sandbox)
+  portal: https://apiportal.lab.gcash.com
+  purpose: partner integration, testing and credential issuance before go-live
+- name: production
+  portal: https://apiportal.gcash.com
+  purpose: live API products after subscription approval
+tooling:
+- name: Mini Program Studio
+  purpose: one-stop tool to write, deploy and debug mini programs (local/dev testing)
+  docs: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/developer-guide
+test_values:
+  published: false
+  note: >-
+    Specific sandbox test wallet accounts / magic values are behind partner
+    onboarding and not published on the public docs — none are recorded here to
+    avoid fabrication.

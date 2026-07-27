@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay
+summary: >-
+  No official GCash MCP server was found. This is a candidate tool list derived
+  from the publicly documented Mini Program Open API payment operations, as a
+  starting point for an agent-facing wrapper. Not published or hosted by GCash.
+server:
+  name: gcash
+  transport: http
+  url: null
+tools:
+- name: create_payment
+  description: Initiate a cashier payment at the GCash wallet (idempotent on paymentRequestId)
+  source_operation: /v1/payments/pay
+- name: inquiry_payment
+  description: Query the status of a payment order
+  source_operation: /v1/payments/inquiryPayment
+- name: refund_payment
+  description: Refund a captured payment (idempotent on refundRequestId)
+  source_operation: /v1/payments/refund
+- name: inquiry_refund
+  description: Query the status of a refund
+  source_operation: /v1/payments/inquiryRefund
+- name: apply_token
+  description: Exchange a user authCode for an access token (OAuth2 authorization code)
+  source_operation: /v2/authorizations/applyToken

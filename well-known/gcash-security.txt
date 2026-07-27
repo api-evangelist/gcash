@@ -1,0 +1,7 @@
+﻿# security.txt for GCash’s Vulnerability Disclosure Program
+Policy: https://gcash.com/vulnerability-disclosure-program/policy
+Contact: https://gcash.com/vulnerability-disclosure-program/report
+Contact: mailto:vulnerability-disclosure@gcash.com
+Preferred-Languages: en
+Expires: 2026-07-20T01:00:00.000Z
+Hiring: If you’d like to join us, please drop us an email at offsec@gcash.com or visit https://gcash.com/careers

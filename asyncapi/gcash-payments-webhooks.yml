@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: searched
+source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay
+spec_type: Webhooks
+docs:
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay
+summary: >-
+  GCash Mini Program payments deliver asynchronous outcome notifications to a
+  merchant-registered callback URL. There is no published AsyncAPI document
+  (the streaming/event surface is partner-gated), so this captures the webhook
+  catalog only. No AsyncAPI spec is fabricated.
+delivery:
+  registration: >-
+    Per-order via the paymentNotifyUrl field on /v1/payments/pay (max 1024
+    chars), or a portal-configured default notification URL.
+  transport: HTTP POST callback from GCash to the merchant endpoint
+  ack: merchant responds to confirm receipt (notifyPayment)
+events:
+- name: notifyPayment
+  trigger: payment order reaches a final state (success/failed) or requires reconciliation
+  operation: /v1/payments/notifyPayment
+  payload_fields: [result, paymentId, paymentRequestId, paymentAmount]
+  note: complements synchronous inquiryPayment polling to resolve U (unknown) results
+- name: notifyRefund
+  trigger: refund order reaches a final state
+  related_operation: /v1/payments/inquiryRefund
+  note: refund outcome notification; refund is queried via inquiryRefund

@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: searched
+source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/call_api
+docs:
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/call_api
+- https://gcash.com/business/api-portal-faqs
+versioning:
+  scheme: uri-path
+  observed: [v1, v2]
+  note: payment and authorization APIs are versioned in the path (e.g. /v2/payments/pay, /v1/authorizations/applyToken)
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: no public deprecation policy or RFC 8594 Sunset/Deprecation header support documented (partner-gated)
+sla:
+  url: null
+  note: SLA terms are set per partner agreement; not publicly published
+status_page: null
+status_page_note: >-
+  No public status/uptime page was found for the GCash API surface as of this
+  probe. Consumer-app status is handled in-app, not via a developer status page.

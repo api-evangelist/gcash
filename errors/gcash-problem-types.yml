@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay
+docs:
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay
+- https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/call_api
+format: gcash-result-envelope
+envelope:
+  container: result
+  fields:
+  - resultStatus
+  - resultCode
+  - resultMessage
+notes: >-
+  GCash Mini Program Open API does not use RFC 9457 problem+json. Every response
+  returns a `result` object. resultStatus classifies the outcome; resultCode is
+  the granular machine code and resultMessage the human message. The precise
+  resultCode registry is on the partner-gated portal; the result-status classes
+  below are documented publicly on the payment API pages.
+result_status:
+- status: S
+  meaning: SUCCESS
+  action: transaction completed successfully
+- status: A
+  meaning: ACCEPT
+  action: transaction accepted; perform the next action described by actionForm (e.g. redirect the user to the cashier)
+- status: F
+  meaning: FAILED
+  action: transaction failed; inspect resultCode / resultMessage for the reason and do not retry blindly
+- status: U
+  meaning: UNKNOWN
+  action: an exception occurred; call inquiryPayment or wait for the notifyPayment callback before deciding
+problems:
+- operation: /v1/payments/pay
+  applies_status: [S, A, F, U]
+  note: idempotent on paymentRequestId; U outcomes must be reconciled via inquiryPayment
+- operation: /v1/payments/inquiryPayment
+  applies_status: [S, F, U]
+  note: status query used to resolve U (unknown) pay results
+- operation: /v1/payments/refund
+  applies_status: [S, A, F, U]
+  note: idempotent on refundRequestId
