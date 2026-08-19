@@ -2,10 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay
-summary: >-
-  No official GCash MCP server was found. This is a candidate tool list derived
-  from the publicly documented Mini Program Open API payment operations, as a
-  starting point for an agent-facing wrapper. Not published or hosted by GCash.
+summary: No official GCash MCP server was found. This is a candidate tool list derived from the publicly
+  documented Mini Program Open API payment operations, as a starting point for an agent-facing wrapper.
+  Not published or hosted by GCash.
 server:
   name: gcash
   transport: http
@@ -26,3 +25,9 @@ tools:
 - name: apply_token
   description: Exchange a user authCode for an access token (OAuth2 authorization code)
   source_operation: /v2/authorizations/applyToken
+deployment:
+  mode: none
+  verified: derived
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
