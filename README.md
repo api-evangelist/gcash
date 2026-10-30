@@ -64,6 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-GCash is a company surfaced as a portfolio company of insight-partners and added to the API Evangelist network as a stub for enrichment. Sector: payments. This profile is a lead awaiting the enrichment pipeline.
+GCash (operated by Mynt / G-Xchange, Inc.) is the Philippines' largest mobile wallet and e-money platform, offering payments, transfers, QR checkout, bills payment, savings, lending and insurance to tens of millions of users. For developers and businesses it exposes a partner-gated API surface: the GCash API Portal (discover and subscribe to API products such as In-Store QR, Webpay, GLife and Funds Disbursement) and the GCash Mini Program Open API, which lets merchants build in-app mini programs with cashier payments, refunds and user authorization. API requests are secured with per-request RSA256/ECC224 signatures plus an OAuth2 authorization-code user flow, with idempotent payment operations and asynchronous webhook notifications. This profile was seeded as a portfolio lead and enriched from GCash's public developer documentation.
 
-Backed by: insight-partners — https://new.gcash.com/
+**Areas:** Company · Payments · Mobile Wallet · E-Money · Fintech · Digital Payments · Philippines · QR Payments
+
+## GCash on APIs.io
+
+Everything profiled for GCash is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gcash/](https://apis.io/providers/gcash/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [GCash Mini Program Open API](https://apis.io/apis/gcash/gcash-mini-program-open-api/) — Merchant-facing payment API for GCash mini programs — cashier payment, payment inquiry, refund and refund inquiry, plus OAuth2 user authorization (authCode…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Gcash Payments Webhooks](https://apis.io/asyncapis/gcash/gcash-payments-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [gcash](https://apis.io/servers/gcash/gcash/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gcash Authentication](https://apis.io/security/gcash/gcash-authentication/)
+- [Gcash Domain Security](https://apis.io/security/gcash/gcash-domain-security/)
+- [Gcash Vulnerability Disclosure](https://apis.io/security/gcash/gcash-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://new.gcash.com/)
+- [Documentation](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/openapi_overview)
+- [Getting started](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/developer-guide)
+- [API reference](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_api-reference)
+- [Support](https://gcash.com/business/api-portal-faqs)
+- [Security](https://gcash.com/vulnerability-disclosure-program/policy)
+- [Terms of service](https://gcash.com/terms-and-conditions)
+- [Privacy policy](https://gcash.com/privacy-notice)
+
+## API Evangelist rating
+
+**Kin Score 35.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 21.1 |
+
+**Agent readiness 25.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gcash/](https://apis.io/providers/gcash/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for GCash: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gcash/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
